@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>假的校园网</title>
+        <script src="https://cdn.staticfile.org/vue/3.2.36/vue.global.min.js"></script>
+    </head>
+    <body>
+        <div id="center-container">
+            <div id="dialog-box">
+                <!-- <h1 id="welcome">:P</h1>
+                <p>欢迎,&nbsp;Welcome</p> -->
+            </div>
+            <div id="triangle-left"></div>
+            <div id="info-box"></div>
+            <div id="triangle-right"></div>
+            <div id="control">
+                <button id="disconnect" onclick="console.log('点了')">
+                    <span class="ch-text">断开连接</span>
+                    <span class="en-text">Disconnect</span>
+                </button>
+            </div>
+            <ul id="link">
+                <li id="info"><a href="info.tsinghua.edu.cn">Info</a></li>
+                <li id="lib"><a href="lib.tsinghua.edu.cn">Lib</a></li>
+                <li id="learn"><a href="learn.tsinghua.edu.cn">Learn</a></li>
+                <li id="mail"><a href="mails.tsinghua.edu.cn">Mail</a></li>
+            </ul>
+        </div>
+    </body>
+    <style>
+        body{
+            background-color: #e6e6e6;
+        }
+        #center-container{
+            width: 512px;
+            height: 200px;
+            position: absolute;
+            left: 50%;
+            margin-left: -256px;
+            margin-top: 100px;
+        }
+        #dialog-box{
+            width: 512px;
+            height: 224px;
+            margin-left: 0px;
+            background: #E64E2E url(img/popup_greeting.png) no-repeat 30px 46px;
+        }
+        #triangle-left{
+            width: 0px;
+            height: 0px;
+            margin-left: 35px;
+            border-style: solid;
+            border-width: 25px;
+            border-left-color: #E64E2E;
+            border-top-color: rgba(255, 255, 255, 0);
+            border-right-color: rgba(255, 255, 255, 0);
+            border-bottom-color: #E64E2E;
+            transform: rotate(90deg);
+        }
+        #info-box{
+            width: 416px;
+            height: 272px;
+            background-color: #f2f3f3;
+            margin-top: -245px;
+            margin-left: 125px;
+            z-index: 1;
+        }
+        #triangle-right{
+            width: 0px;
+            height: 0px;
+            margin-left: 526px;
+            margin-top: -75px;
+            border-style: solid;
+            border-width: 15px;
+            border-left-color: rgba(255, 255, 255, 0);
+            border-top-color: #c7c7c7;
+            border-right-color: rgba(255, 255, 255, 0);
+            border-bottom-color: rgba(255, 255, 255, 0);
+            transform: rotate(45deg);
+        }
+        #control{
+            display: flex;
+            width: 174px;
+            height: 46px;
+            margin-left: 354px;
+            margin-top: -15px;
+            padding: 17px;
+            background-color: #ffffff;
+            flex-direction: column;
+            align-items: stretch;
+        }
+        #disconnect{
+            flex: 1 1 auto; 
+            flex-basis: 0;
+        }
+        #disconnect{
+            background-color: #bfbdcb;
+            border: #B2AABE solid 1px;
+        }
+        #disconnect > .ch-text{
+            font-size: 20px;
+            color: #464550;
+        }
+        #disconnect > .en-text{
+            line-height: 0px;
+            font-size: 18px;
+            color: #7a7785;
+        }
+        #link{
+            position: absolute;
+            margin-left: 280px;
+            margin-top: -2px;
+            display: flex
+        }
+        li{
+            display: block;
+            height: 20px;
+            padding: 13px 0 0 26px;
+            font-size: 14px;
+        }
+        #info{
+            background: url(img/popup_info.gif) no-repeat 2px 2px;
+        }
+        #lib{
+            background: url(img/popup_lib.gif) no-repeat 2px 2px;
+            margin-left: 10px;
+        }
+        #learn{
+            background: url(img/popup_learn.gif) no-repeat 2px 2px;
+            margin-left: 10px;
+        }
+        #mail{
+            background: url(img/popup_mail.gif) no-repeat 2px 2px;
+            margin-left: 10px;
+        }
+        a{
+            color: #a0432c;
+        }
+    </style>
+</html>
