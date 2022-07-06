@@ -1,9 +1,9 @@
-const SchoolNetApp = {
-    data() {
-        return {
-        message: 'Hello Vue!!'
-        }
-    }
-}
+// const SchoolNetApp = {
+//     data() {
+//         return {
+//         message: 'Hello Vue!!'
+//         }
+//     }
+// }
   
-Vue.createApp(SchoolNetApp).mount('#hello-vue')
+// Vue.createApp(SchoolNetApp).mount('#hello-vue')

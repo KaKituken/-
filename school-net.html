@@ -7,12 +7,40 @@
     </head>
     <body>
         <div id="center-container">
-            <div id="dialog-box">
-                <!-- <h1 id="welcome">:P</h1>
-                <p>欢迎,&nbsp;Welcome</p> -->
-            </div>
+            <div id="dialog-box"></div>
             <div id="triangle-left"></div>
-            <div id="info-box"></div>
+            <div id="info-box">
+                <h1 id="user" class="theme-font">{{username}}</h1>
+                <div id="info-content">
+                        <div>
+                            <p>已连接</p>
+                            <p>Duration</p>
+                        </div>
+                        <div id="time" class="theme-font">
+                            23:12:45
+                        </div>
+                </div>
+                <div id="traffic-content">
+                    <div>
+                        <p>已用流量</p>
+                        <p>Usage</p>
+                    </div>
+                    <div class="bar">
+                        <ul>
+                            <li>20</li>
+                            <li>30</li>
+                            <li>40</li>
+                            <li>50</li>
+                        </ul>
+                        <div id="traffic-value"></div>
+                        <div class="white-slide" id="slide1"></div>
+                        <div class="white-slide" id="slide2"></div>
+                        <div id="traffic">
+                            45.24M
+                        </div>
+                    </div>
+            </div>
+            </div>
             <div id="triangle-right"></div>
             <div id="control">
                 <button id="disconnect" onclick="console.log('点了')">
@@ -28,10 +56,23 @@
             </ul>
         </div>
     </body>
+
+    <script>
+        const user = {
+            data() {
+                return{
+                    username: "Uehara Ayumu"
+                }
+            }
+        }
+        Vue.createApp(user).mount('#user')
+    </script>
+
     <style>
         body{
             background-color: #e6e6e6;
         }
+
         #center-container{
             width: 512px;
             height: 200px;
@@ -40,12 +81,14 @@
             margin-left: -256px;
             margin-top: 100px;
         }
+
         #dialog-box{
             width: 512px;
             height: 224px;
             margin-left: 0px;
             background: #E64E2E url(img/popup_greeting.png) no-repeat 30px 46px;
         }
+
         #triangle-left{
             width: 0px;
             height: 0px;
@@ -58,14 +101,17 @@
             border-bottom-color: #E64E2E;
             transform: rotate(90deg);
         }
+
         #info-box{
-            width: 416px;
-            height: 272px;
-            background-color: #f2f3f3;
+            width: 352px;
+            height: 208px;
+            background-color: #f2f2f2;
             margin-top: -245px;
             margin-left: 125px;
             z-index: 1;
+            padding: 32px;
         }
+
         #triangle-right{
             width: 0px;
             height: 0px;
@@ -79,6 +125,7 @@
             border-bottom-color: rgba(255, 255, 255, 0);
             transform: rotate(45deg);
         }
+
         #control{
             display: flex;
             width: 174px;
@@ -90,52 +137,155 @@
             flex-direction: column;
             align-items: stretch;
         }
+
         #disconnect{
             flex: 1 1 auto; 
             flex-basis: 0;
         }
+
         #disconnect{
             background-color: #bfbdcb;
             border: #B2AABE solid 1px;
         }
+
         #disconnect > .ch-text{
             font-size: 20px;
             color: #464550;
         }
+
         #disconnect > .en-text{
             line-height: 0px;
             font-size: 18px;
             color: #7a7785;
         }
+
         #link{
             position: absolute;
             margin-left: 280px;
             margin-top: -2px;
             display: flex
         }
-        li{
+        
+        #link > li{
             display: block;
             height: 20px;
             padding: 13px 0 0 26px;
             font-size: 14px;
         }
+
         #info{
             background: url(img/popup_info.gif) no-repeat 2px 2px;
         }
+
         #lib{
             background: url(img/popup_lib.gif) no-repeat 2px 2px;
             margin-left: 10px;
         }
+
         #learn{
             background: url(img/popup_learn.gif) no-repeat 2px 2px;
             margin-left: 10px;
         }
+
         #mail{
             background: url(img/popup_mail.gif) no-repeat 2px 2px;
             margin-left: 10px;
         }
+
         a{
             color: #a0432c;
         }
+
+        #user{
+            font-family: Helvetica, Arial, sans-serif;
+            font-weight: lighter;
+            margin-top: 0px;
+        }
+
+        #info-box > div{
+            display: flex;
+            text-align: right;
+        }
+
+        #info-box p{
+            font-size: 12px;
+            line-height: 0px;
+        }
+
+        #time{
+            width: 10em;
+            text-align: left;
+            margin-left: 15px;
+            margin-top: -2px;
+            font-size: 28px;
+        }
+
+        #traffic-content{
+            margin-top: 1em;
+        }
+
+        #traffic{
+            color: #5c5c5c;
+            font-size: 24px;
+            margin-left: 15px;
+        }
+
+        .theme-font{
+            color: #E64E2E;
+        }
+
+        .bar{
+            position: absolute;
+            height: 32px;
+            width: 280px;
+            background: url(img/usage_bg.gif) repeat-y;
+            margin-left: 60px;
+        }
+
+        #traffic{
+            font-size: 24px;
+            font-family: Helvetica, Arial, sans-serif;
+            font-weight: lighter;
+            margin-top: -8px;
+            /* float: left; */
+            position: absolute;
+        }
+
+        .bar > ul{
+            display: flex;
+            margin-top: -15px;
+            margin-left: 10px;
+            font-family: Verdana, Geneva, sans-serif;
+            font-size: 13px;
+            color: #969696;
+        }
+
+        .bar li{
+            display: block;
+            margin-left: 37px;
+        }
+
+        .white-slide{
+            position: absolute;
+            top: 0;
+            right: 4px;
+            width: 4px;
+            height: 100%;
+            background: #F2F2F2;
+        }
+
+        #slide1{
+            right: 12px;
+        }
+
+        #traffic-value{
+            float: left;
+            height: 32px;
+            max-width: 280px;
+            width: 240px;
+            background: #FBB03B;
+            margin-top: -13px;
+        }
+
     </style>
 </html>
