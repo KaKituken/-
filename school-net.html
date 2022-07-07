@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <title>假的校园网</title>
-        <script src="https://cdn.staticfile.org/vue/3.2.36/vue.global.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
     </head>
     <body>
         <div id="center-container">
@@ -17,7 +17,7 @@
                             <p>Duration</p>
                         </div>
                         <div id="time" class="theme-font">
-                            23:12:45
+                            {{newTime}}
                         </div>
                 </div>
                 <div id="traffic-content">
@@ -32,11 +32,11 @@
                             <li>40</li>
                             <li>50</li>
                         </ul>
-                        <div id="traffic-value"></div>
+                        <div id="traffic-value":style="myStyle"></div>
                         <div class="white-slide" id="slide1"></div>
                         <div class="white-slide" id="slide2"></div>
                         <div id="traffic">
-                            45.24M
+                            {{traffic}}
                         </div>
                     </div>
             </div>
@@ -58,14 +58,56 @@
     </body>
 
     <script>
-        const user = {
-            data() {
-                return{
-                    username: "Uehara Ayumu"
+        let trafficUsed = 41
+        const MAXTRAFFIC = 50
+        const MAXLENGTH = 264
+        let curLength = trafficUsed / MAXTRAFFIC * MAXLENGTH
+
+        var user = new Vue({
+            el: '#user',
+            data:{
+                username: "Uehara Ayumu"
+            }
+        })
+
+        var traffic = new Vue({
+            el: '#traffic',
+            data:{
+                traffic: String(trafficUsed) + 'G'
+            },
+        })
+
+        var yelloBar = new Vue({
+            el: '#traffic-value',
+            data:{
+                myStyle:{
+                    width: curLength + 'px'
                 }
             }
-        }
-        Vue.createApp(user).mount('#user')
+        })
+
+        var icnow = new Date()
+        var interval
+        var curTime = new Vue({
+            el:'#time',
+            data:{
+                time: icnow.toTimeString().substring(0, 8)
+            },
+            created(){
+                interval = setInterval(()=>{
+                    let icnow = new Date()
+                    this.time = icnow.toTimeString().substring(0, 8)
+                }, 1000)
+            },
+            computed:{
+                newTime: function(){
+                    return this.time
+                }
+            },
+            beforeDestroy () {
+                clearInterval(interval);
+            }
+        })
     </script>
 
     <style>
@@ -282,7 +324,6 @@
             float: left;
             height: 32px;
             max-width: 280px;
-            width: 240px;
             background: #FBB03B;
             margin-top: -13px;
         }
