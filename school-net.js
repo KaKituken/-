@@ -2,35 +2,17 @@ let trafficUsed = 41
 const MAXTRAFFIC = 50
 const MAXLENGTH = 264
 let curLength = trafficUsed / MAXTRAFFIC * MAXLENGTH
-
-var user = new Vue({
-    el: '#user',
-    data:{
-        username: "Takasaki You"
-    }
-})
-
-var traffic = new Vue({
-    el: '#traffic',
-    data:{
-        traffic: String(trafficUsed) + 'G'
-    },
-})
-
-var yelloBar = new Vue({
-    el: '#traffic-value',
-    data:{
-        myStyle:{
-            width: curLength + 'px'
-        }
-    }
-})
-
 var icnow = new Date()
 var interval
-var curTime = new Vue({
-    el:'#time',
+
+var app = new Vue({
+    el: '#center-container',
     data:{
+        username: "Takasaki You",
+        traffic: String(trafficUsed) + 'G',
+        myStyle:{
+            width: curLength + 'px'
+        },
         time: icnow.toTimeString().substring(0, 8)
     },
     created(){
