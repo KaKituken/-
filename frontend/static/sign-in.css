@@ -3,9 +3,11 @@ body{
 }
 
 header{
+    position: absolute;
+    left: 50%;
+    margin-left: -370px;
     display: flex;
     align-items: center;
-    margin-left: 25px;
 }
 
 header > #wifi{
@@ -39,8 +41,9 @@ header #ad{
     width: 720px;
     height: 480px;
     position: absolute;
-    left: 400px;
-    margin-left: -340px;
+    left: 50%;
+    top: 200px;
+    margin-left: -350px;
     background: url(img/content_shadow.png) no-repeat 0px 400px;
 }
 
@@ -172,6 +175,10 @@ header #ad{
 
 nav{
     display: flex;
+    position: absolute;
+    left: 50%;
+    top: 865px;
+    margin-left: -390px;
 }
 
 nav #download{
@@ -284,9 +291,12 @@ nav #other li{
 }
 
 footer{
+    position: absolute;
+    left: 50%;
+    top: 740px;
     float: left;
-    margin-top: 550px;
-    width: 100%;
+    margin-left: -390px;
+    width: 800px;
     height: 100%;
     text-align: right;
     font-size: 12px;

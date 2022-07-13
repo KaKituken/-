@@ -4,7 +4,8 @@
         <meta charset="utf-8">
         <title>假的登陆页面</title>
         <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
-        <link rel="stylesheet" type="text/css" href="sign-in.css">
+        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="static/sign-in.css">
     </head>
     <body>
         <header>
@@ -12,10 +13,10 @@
                 <div id="title"></div>
             </div>
             <div id="qrcode">
-                <img src="img/qrcode_for_258.jpeg">
+                <img src="static/img/qrcode_for_258.jpeg">
                 <p>欢迎关注“清华大学信息服务”</p>
             </div>
-            <img id="ad" src="img/attsinghua.png">
+            <img id="ad" src="static/img/attsinghua.png">
         </header>
         <main id="center-container">
             <div id="dialog-box"></div>
@@ -28,13 +29,13 @@
                         <p class="ch-text">用户名</p>
                         <p class="en-text">User ID</p>
                     </div>
-                    <input type="text" id="username">
+                    <input type="text" id="username" v-model:value="username">
                     <div>
                         <p class="ch-text">密码</p>
                         <p class="en-text">Password</p>
                     </div>
-                    <input type="password" id="password">
-                    <button id="connect" onclick="console.log('点了')">
+                    <input type="password" id="password" v-model:value="password">
+                    <button type="button" id="connect" @click="onSubmit">
                         <span class="ch-text">连接</span>
                         <br>
                         <span class="en-text">Connect</span>
@@ -78,4 +79,6 @@
             <p>Information Technology Center of Tsinghua University</p>
         </footer>
     </body>
+    
+    <script src="static/sign-in.js"></script>
 </html>

@@ -4,21 +4,27 @@
         <meta charset="utf-8">
         <title>假的校园网</title>
         <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="static/school-net.css">
     </head>
     <body>
         <div id="center-container">
             <div id="dialog-box"></div>
             <div id="triangle-left"></div>
             <div id="info-box">
-                <h1 id="user" class="theme-font">{{username}}</h1>
+                {% raw %}
+                <h1 id="user" class="theme-font"> {{username}} </h1>
+                {% endraw %}
                 <div id="info-content">
                         <div>
                             <p>已连接</p>
                             <p>Duration</p>
                         </div>
+                        {% raw %}
                         <div id="time" class="theme-font">
                             {{newTime}}
                         </div>
+                        {% endraw %}
                 </div>
                 <div id="traffic-content">
                     <div>
@@ -35,15 +41,17 @@
                         <div id="traffic-value":style="myStyle"></div>
                         <div class="white-slide" id="slide1"></div>
                         <div class="white-slide" id="slide2"></div>
+                        {% raw %}
                         <div id="traffic">
                             {{traffic}}
                         </div>
+                        {% endraw %}
                     </div>
             </div>
             </div>
             <div id="triangle-right"></div>
             <div id="control">
-                <button id="disconnect" onclick="console.log('点了')">
+                <button id="disconnect" @click="disconnect">
                     <span class="ch-text">断开连接</span>
                     <span class="en-text">Disconnect</span>
                 </button>
@@ -57,5 +65,5 @@
         </div>
     </body>
 
-    <script src="school-net.js"></script>
+    <script src="static/school-net.js"></script>
 </html>
