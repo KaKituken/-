@@ -7,7 +7,7 @@ var login = new Vue({
     },
     methods: {
         onSubmit(){
-            console.log('nihao')
+            // console.log('nihao')
             const param = {
                 'username': this.username,
                 'password': this.password

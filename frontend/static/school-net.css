@@ -216,3 +216,21 @@ a{
     background: #FBB03B;
     margin-top: -13px;
 }
+
+#statistic{
+    margin-top: 3em;
+    border-style: solid;
+    border-color: #B2AABE;
+    border-width: 1px;
+    background-color: #bfbdcb;
+}
+
+#statistic:hover{
+    background-color: #FBB03B;
+}
+
+#vue-loader > button{
+    position: absolute;
+    left: 50%;
+    bottom: 20%;
+}
